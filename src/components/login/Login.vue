@@ -1,6 +1,6 @@
 <template>
   <div class="login-container">
-    <div class="card login-card" style="height: 60% !important;">
+    <div class="card login-card">
       <div class="card-body">
         <h4 class="card-title text-center mb-0">Login</h4>
         <form @submit.prevent="login">

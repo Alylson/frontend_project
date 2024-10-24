@@ -32,21 +32,10 @@ const routes = [
         component: () => import('@/views/admin/task/EditTaskAdmin.vue'),
       },
       {
-        path: 'scraping',
-        name: 'ScrapingAdmin',
-        component: () => import('@/views/admin/scraping/ScrapingAdmin.vue'),
-      },
-      {
-        path: 'scraping/create',
-        name: 'CreateScrapingAdmin',
-        component: () => import('@/views/admin/scraping/CreateScrapingAdmin.vue'),
-      },
-      {
         path: 'user',
         name: 'User',
         component: () => import('@/views/user/User.vue'),
       },
-
     ]
   }
 ];
