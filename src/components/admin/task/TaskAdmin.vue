@@ -35,7 +35,7 @@
           <tr v-for="(task, index) in tableTask.data" :key="index" class="align-middle">
             <td class="text-black-50">{{ task.id }}</td>
             <td class="text-black-50" style="width: 60%;">{{ task.url }}</td> 
-            <td class="text-black-50">{{ task.status }}</td>   
+            <td class="text-black-50">{{ getStatusName(task.status) }}</td>   
             <td>
               <button class="btn btn-success btn-sm" @click="executeScraping(task.url, task.id)">
                 Executar
@@ -92,8 +92,9 @@ export default {
 
       if (response) {
         this.tableTask = {
-          data: response.tasks.map((task) => ({
+            data: response.tasks.map((task) => ({
             ...task,
+            status: parseInt(task.status, 10)
           }))
         };
       }
@@ -133,6 +134,18 @@ export default {
         this.setFlashMessage(error, "error");
       }
     },
+
+    getStatusName(id) {
+      const statusList = [
+        { id: 1, name: 'Pendente' },
+        { id: 2, name: 'Em progresso' },
+        { id: 3, name: 'Concluída' },
+        { id: 4, name: 'Falha' }
+      ];
+
+      const status = statusList.find(status => status.id === id);
+      return status ? status.name : 'Desconhecido';
+    }
   },
 };
 </script>

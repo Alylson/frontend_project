@@ -128,7 +128,6 @@ export default {
       try {
         const response = await this.TaskAdminService.getTask(id);
 
-        console.log('Response status:', response.status); 
         if (response) {
           this.formData = response;
           this.formData.url = response.url;
