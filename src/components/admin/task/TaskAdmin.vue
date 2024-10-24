@@ -105,7 +105,7 @@ export default {
       try {
         this.isLoading = true;
 
-        payload = {
+        let payload = {
           task_id: id,
           url: url
         }
